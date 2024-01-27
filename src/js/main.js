@@ -3,24 +3,14 @@ import javascriptLogo from '../assets/images/javascript.svg'
 import viteLogo from '../assets/images/vite.svg'
 import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a> 
-    <h1>¡Holi caracoli!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Si haces click en cualquier logo ¡Ganarás mil eurazos!
-    </p>
-  </div>
-`
+document.querySelector('#baraja').innerHTML = `
+  <div id="cards-container">
+      <div class="card">
 
+      </div>
+  </div>
+  <p>Coje tu carta</p>
+`
 
 
 setupCounter(document.querySelector('#counter'));
