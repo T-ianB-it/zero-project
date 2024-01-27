@@ -14,3 +14,4 @@ document.querySelector('#baraja').innerHTML = `
 
 
 setupCounter(document.querySelector('#counter'));
+
