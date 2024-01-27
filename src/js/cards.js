@@ -9,10 +9,26 @@
  }
 
  
-
 //Palos
+class palocard {
+    constructor(alto,ancho,identificador,palo,valor){
+        this.palo = palo;
+        this.alto = alto;
+        this.ancho = ancho;
+        this.identificador = identificador;
+        this.valor = valor;
+    }
+ }
 
 //Especial
+
+class specialcard {
+    constructor(alto,ancho,identificador){
+        this.alto = alto;
+        this.ancho = ancho;
+        this.identificador = identificador;
+    }
+ }
 
 // Propiedades y método de encapsulación para Animal
 
