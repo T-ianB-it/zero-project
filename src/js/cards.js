@@ -1,4 +1,4 @@
-// Declaración de clases y encapsulación de propiedades y métodos.  
+// Declaración de clases sus propiedades y métodos.  
 
 //Triunfos cards
 export class triunfocard {
@@ -7,6 +7,10 @@ export class triunfocard {
         this.triunfoCardAncho = ancho;
         this.triunfoCardIdentificador = identificador;
         this.triunfoCardValor = valor;
+    }
+
+    setidentificador( n ,  ){
+
     }
  }
 

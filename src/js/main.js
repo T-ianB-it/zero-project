@@ -7,14 +7,23 @@ import { triunfocard , palocard , specialcard } from './cards.js'
 //Declaraciones
 const anchoCard = 12 ;
 const altoCard = 17 ;
+
+const numCardsTriunfo = 21;
+const numCardsSpecial = 1;
+
+const corazonesPalo = 'corazones';
+const diamantesPalo = 'diamantes';
+const picasPalo = 'picas';
+const trebolesPalo = 'treboles';
+
+const identificadoresPalo = ['r','d','c','v',10,9,8,7,6,5,4,3,2,1];
+
 //
 
-const triunfoDos = new  triunfocard(28,56,"1",5);
-const triunfoUno = new  triunfocard(28,56,"1",5);
-const triunfoTres = new  triunfocard(28,56,"1",5);
-const triunfoCuatro = new  triunfocard(28,56,"1",5);
-
-console.log(triunfoUno.triunfoCardAncho);
+for(let i =identificadoresPalo.length - 1; i >= 0 ; i--){
+  //let corazonesCardsPalo = new palocard(altoCard,anchoCard,i,corazonesPalo,i);
+  console.log(`Me repito ${i} veces`+identificadoresPalo[i]);
+}
 
 document.querySelector('#barajaContainer').innerHTML = `
   <div id="cards-container">
@@ -26,5 +35,5 @@ document.querySelector('#barajaContainer').innerHTML = `
 `
 
 
-setupCounter(document.querySelector('#counter'));
+//setupCounter(document.querySelector('#counter'));
 
