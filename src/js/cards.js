@@ -1,35 +1,34 @@
-//Triunfos. Sus identificadores van del 1-21. Su valor coincide con su identificador, excepto el 1 y 21 que son 5  
- class triunfocard {
+// Declaración de clases y encapsulación de propiedades y métodos.  
+
+//Triunfos cards
+export class triunfocard {
     constructor(alto,ancho,identificador,valor){
-        this.alto = alto;
-        this.ancho = ancho;
-        this.identificador = identificador;
-        this.valor = valor;
+        this.triunfoCardAlto = alto;
+        this.triunfoCardAncho = ancho;
+        this.triunfoCardIdentificador = identificador;
+        this.triunfoCardValor = valor;
     }
  }
 
- 
-//Palos
-class palocard {
+//Palos cards
+export class palocard {
     constructor(alto,ancho,identificador,palo,valor){
-        this.palo = palo;
-        this.alto = alto;
-        this.ancho = ancho;
-        this.identificador = identificador;
-        this.valor = valor;
+        this.simboloPaloCard = palo;
+        this.paloCardAlto = alto;
+        this.paloCardAncho = ancho;
+        this.paloCardIdentificador = identificador;
+        this.paloCardValor = valor;
     }
  }
 
-//Especial
-
-class specialcard {
+//Especial card
+export class specialcard {
     constructor(alto,ancho,identificador){
-        this.alto = alto;
-        this.ancho = ancho;
-        this.identificador = identificador;
+        this.specialCardAlto = alto;
+        this.specialCardancho = ancho;
+        this.specialCardidentificador = identificador;
     }
  }
 
-// Propiedades y método de encapsulación para Animal
 
   
