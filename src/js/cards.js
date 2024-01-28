@@ -8,19 +8,17 @@ export class triunfocard {
         this.triunfoCardIdentificador = identificador;
         this.triunfoCardValor = valor;
     }
-
-    setidentificador( n ,  ){
-
-    }
  }
 
 //Palos cards
+
 export class palocard {
+
     constructor(alto,ancho,identificador,palo,valor){
         this.simboloPaloCard = palo;
         this.paloCardAlto = alto;
         this.paloCardAncho = ancho;
-        this.paloCardIdentificador = identificador;
+        this.paloCardIdentificador = identificador ;
         this.paloCardValor = valor;
     }
  }
