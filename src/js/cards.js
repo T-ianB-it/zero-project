@@ -1,7 +1,7 @@
 // Declaración de clases sus propiedades y métodos.  
 
 //Triunfos cards
-export class triunfocard {
+export class typeTriunfoCard {
     constructor(alto,ancho,identificador,valor){
         this.triunfoCardAlto = alto;
         this.triunfoCardAncho = ancho;
@@ -12,19 +12,19 @@ export class triunfocard {
 
 //Palos cards
 
-export class palocard {
+export class typePaloCard {
 
     constructor(alto,ancho,identificador,palo,valor){
-        this.simboloPaloCard = palo;
         this.paloCardAlto = alto;
         this.paloCardAncho = ancho;
         this.paloCardIdentificador = identificador ;
+        this.simboloPaloCard = palo;
         this.paloCardValor = valor;
     }
  }
 
 //Especial card
-export class specialcard {
+export class typeSpecialCard {
     constructor(alto,ancho,identificador){
         this.specialCardAlto = alto;
         this.specialCardancho = ancho;

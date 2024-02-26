@@ -9,7 +9,7 @@
 
 ## Baraja ##
 
-    Se juega con una baraja de 78 cartas de tarot que se compone de 56 cartas divididas en cuatro palos de 14 cartas cada uno, 21 cartas especiales denominadas triunfos numeradas de 1 a 21 y una carta especial que no tiene número o tiene el número 0, denominada la excusa. 
+    Se juega con una baraja de 78 cartas de tarot que se compone de 56 cartas divididas en cuatro palos de 14 cartas cada uno, 21 cartas denominadas triunfos numeradas de 1 a 21 y una carta especial que no tiene número o tiene el número 0, denominada la excusa. 
 
     Los cuatro palos son: corazón, diamante, picas y tréboles. Cada palo esta compuesta por las siguientes cartas: rey (R), dama (D), caballero (C), valet (V), diez, nueve, ocho, siete, seis, cinco, cuatro, tres, dos y uno (as). 
 

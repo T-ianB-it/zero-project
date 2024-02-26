@@ -1,71 +1,93 @@
-import '../css/style.css'
-//import javascriptLogo from '../assets/images/javascript.svg'
-//import viteLogo from '../assets/images/vite.svg'
-//import { setupCounter } from './counter.js'
-import { triunfocard , palocard , specialcard } from './cards.js'
+//import '../css/style.css'
+import { typeTriunfoCard , typePaloCard , typeSpecialCard } from './cards.js'
 
 //Declaraciones
-const anchoCard = 12 ;
-const altoCard = 17 ;
+const numPlayers = 3;
+let namesPlayers = ['Lolo', 'Lupi', 'Mamen']
+
+const widthCard = 12 ;
+const heightCard = 17 ;
+const numCardsTarot = 78;
+
+const kindsPaloCards = ['corazones','diamantes','picas','treboles'];
+const identityPaloCards = ['1','2','3','4','5','6','7','8','9','10','v','c','d','r'];
+const valuePaloCards = [1,2,3,4,5,6,7,8,9,10,2,3,4,5];
+const deckOfPaloCards = [];
 
 const numCardsTriunfo = 21;
-const numCardsSpecial = 1;
+const identityTriundoCards = ['1','2','3','4','5','6','7','8','9','10','11','11','13','14','15','16','17','18','19','20','21'];
+const valueTriunfoCards = [5,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,5];
+const deckOfTriundoCards = [];
 
-const corazonesPalo = 'corazones';
-const diamantesPalo = 'diamantes';
-const picasPalo = 'picas';
-const trebolesPalo = 'treboles';
+const identitySpecialCard = 0;
 
-const identificadoresPaloCards = [1,2,3,4,5,6,7,8,9,10,'v','c','d','r'];
-const valoresPaloCards = [1,2,3,4,5,6,7,8,9,10,5,5,5,5];
+let tarotPlayers = [] ; 
 
-let randomNumCard = function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+//DOM
+
+
+
+//------------------------------ Baraja de Palos---------------------------------------//
+
+for(let i = 0 ; i < kindsPaloCards.length ; i++){
+  for(let j = 0 ; j < identityPaloCards.length ; j++){
+    deckOfPaloCards.push(new typePaloCard (heightCard, widthCard, identityPaloCards[j], kindsPaloCards[i], valuePaloCards[j]))
+  }
 }
 
+//---------------------------------- Baraja de Triunfos -----------------------------------//
+
+for(let i=0 ; i < numCardsTriunfo ; i++){
+  deckOfTriundoCards.push(new typeTriunfoCard(heightCard,widthCard,identityTriundoCards[i],valueTriunfoCards[i]));
+}
+
+//--------------------------------- Carta especial------------------------------------//
+
+const specialCard =  new typeSpecialCard(heightCard, widthCard, identitySpecialCard);
+  
+//--------------------------------- Baraja completa------------------------------------//
+
+const deckOfCardsCompleted = deckOfPaloCards.concat(deckOfTriundoCards,specialCard);
+
+//--------------------------------- Mano de cartas ------------------------------------//
+
+let setAleatoryIndx = (x) => Math.floor(Math.random()*x+1);
+
+let setCard = (totalCards, indx) => totalCards[indx];
+
+let setCardsToPlayer = () => {
+  let deckOfPlayerCards = [];
+
+  for(let i = 0 ; i < numPlayers ; i++){
+    deckOfPlayerCards.push(setCard(deckOfCardsCompleted, setAleatoryIndx(numCardsTarot)));
+  }
+  return deckOfPlayerCards;
+};
+
+//console.log(setCardsToPlayer());
+//--------------------------------- Todos los jugadores ------------------------------------//
+class gamePlayer {
+  constructor(name,cards){
+    this.name = name;
+    this.cards = cards;
+  }
+}
+
+for(let i = 0 ; i < numPlayers ; i++){
+  tarotPlayers.push(new gamePlayer(namesPlayers[i],setCardsToPlayer()));
+}
+
+
+//tarotPlayers[0].cards = setCardsToPlayer();
+
+
+console.log(tarotPlayers[0].cards);
+
+//document.querySelector('#barajaContainer').innerHTML = `
+//  <div id="cards-container">
+//    <div class="card">
 //
-
-//for(let i = 0 ; i <= 3 ; i++){
-  for(let j = 0 ; j <= identificadoresPaloCards.length -1  ; j++){
-      const corazonesPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[j], corazonesPalo, valoresPaloCards[j]);
-      console.log(corazonesPaloHand);
-    }
-//    for(let j = 0 ; j <= 14 -1  ; j++){
-//      const corazonesPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[randomNumCard(14)], corazonesPalo, valoresPaloCards[j]);
-//      console.log(corazonesPaloHand);
-//    }
-    for(let k = 0 ; k <= identificadoresPaloCards.length -1  ; k++){
-      const diamantesPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[k], diamantesPalo, valoresPaloCards[k]);
-      console.log(diamantesPaloHand);
-    }
-      for(let l = 0 ; l <= identificadoresPaloCards.length -1  ; l++){
-        const picasPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[l], picasPalo, valoresPaloCards[l]);
-        console.log(picasPaloHand);
-      }
-        for(let m = 0 ; m <= identificadoresPaloCards.length -1  ; m++){
-          const trebolesPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[m], trebolesPalo, valoresPaloCards[m]);
-          console.log(trebolesPaloHand);
-        }
-
-//break;
-    //const diamantesPaloHand = new palocard (altoCard, anchoCard, identificadoresPaloCards[i], diamantesPalo, valoresPaloCards[i]);
-    //console.log(`Me repito ${i} veces`+`y mi identificador es ${identificadoresPaloCards[i]}`);
-    //console.log(diamantesPaloHand);
-    //console.log(picasPaloHand);
-//    console.log(trebolesPaloHand);
-//}
-
-
-
-document.querySelector('#barajaContainer').innerHTML = `
-  <div id="cards-container">
-    <div class="card">
-
-    </div>
-    <p>Coje tu carta</p>
-  </div>
-`
-
-
-//setupCounter(document.querySelector('#counter'));
-
+//    </div>
+//    <p>Coje tu carta</p>
+//  </div>
+//`
