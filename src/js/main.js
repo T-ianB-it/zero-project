@@ -3,7 +3,7 @@ import { typeTriunfoCard , typePaloCard , typeSpecialCard } from './cards.js'
 
 //Declaraciones
 const numPlayers = 3;
-let namesPlayers = ['Lolo', 'Lupi', 'Mamen']
+let namesPlayers;
 
 const widthCard = 12 ;
 const heightCard = 17 ;
@@ -52,9 +52,7 @@ const deckOfCardsCompleted = deckOfPaloCards.concat(deckOfTriundoCards,specialCa
 //--------------------------------- Mano de cartas ------------------------------------//
 
 let setAleatoryIndx = (x) => Math.floor(Math.random()*x+1);
-
 let setCard = (totalCards, indx) => totalCards[indx];
-
 let setCardsToPlayer = () => {
   let deckOfPlayerCards = [];
 
@@ -64,8 +62,12 @@ let setCardsToPlayer = () => {
   return deckOfPlayerCards;
 };
 
-//console.log(setCardsToPlayer());
 //--------------------------------- Todos los jugadores ------------------------------------//
+
+namesPlayers =  window.prompt ( 'Introduce los nombres de los jugadores').split(',');//Funciona pero solo si introducen los nombres separados por coma. :(
+
+console.log(typeof namesPlayers);
+
 class gamePlayer {
   constructor(name,cards){
     this.name = name;
@@ -77,11 +79,7 @@ for(let i = 0 ; i < numPlayers ; i++){
   tarotPlayers.push(new gamePlayer(namesPlayers[i],setCardsToPlayer()));
 }
 
-
-//tarotPlayers[0].cards = setCardsToPlayer();
-
-
-console.log(tarotPlayers[0].cards);
+console.log(tarotPlayers);
 
 //document.querySelector('#barajaContainer').innerHTML = `
 //  <div id="cards-container">
