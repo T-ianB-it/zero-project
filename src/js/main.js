@@ -1,4 +1,4 @@
-//import '../css/style.css'
+import '../css/style.css'
 import { typeTriunfoCard , typePaloCard , typeSpecialCard } from './cards.js'
 
 //Declaraciones
@@ -8,6 +8,8 @@ let namesPlayers;
 const widthCard = 12 ;
 const heightCard = 17 ;
 const numCardsTarot = 78;
+let deckOfCardsCompleted = [];
+let shufleDeckOfCardsComplet = [];
 
 const kindsPaloCards = ['corazones','diamantes','picas','treboles'];
 const identityPaloCards = ['1','2','3','4','5','6','7','8','9','10','v','c','d','r'];
@@ -22,10 +24,6 @@ const deckOfTriundoCards = [];
 const identitySpecialCard = 0;
 
 let tarotPlayers = [] ; 
-
-//DOM
-
-
 
 //------------------------------ Baraja de Palos---------------------------------------//
 
@@ -45,28 +43,41 @@ for(let i=0 ; i < numCardsTriunfo ; i++){
 
 const specialCard =  new typeSpecialCard(heightCard, widthCard, identitySpecialCard);
   
-//--------------------------------- Baraja completa------------------------------------//
-
-const deckOfCardsCompleted = deckOfPaloCards.concat(deckOfTriundoCards,specialCard);
-
 //--------------------------------- Mano de cartas ------------------------------------//
 
-let setAleatoryIndx = (x) => Math.floor(Math.random()*x+1);
-let setCard = (totalCards, indx) => totalCards[indx];
-let setCardsToPlayer = () => {
-  let deckOfPlayerCards = [];
+deckOfCardsCompleted = deckOfPaloCards.concat(deckOfTriundoCards,specialCard);
 
-  for(let i = 0 ; i < numPlayers ; i++){
-    deckOfPlayerCards.push(setCard(deckOfCardsCompleted, setAleatoryIndx(numCardsTarot)));
+let setAleatoryIndx = (max) => Math.floor ( Math.random() * max);
+
+let setCard = (totalCards, indx) => totalCards[indx];
+
+//--------------------------------- Baraja completa mezclada ------------------------------------//
+
+while (shufleDeckOfCardsComplet.length < deckOfCardsCompleted.length) {
+
+  let candidateToShuffle = setCard(deckOfCardsCompleted, setAleatoryIndx(numCardsTarot)); 
+  let findIndxToShuffleDeck = shufleDeckOfCardsComplet.indexOf(candidateToShuffle);
+  
+  if (findIndxToShuffleDeck > -1) {
+    candidateToShuffle = setCard(deckOfCardsCompleted, setAleatoryIndx(numCardsTarot));
+  }else if(findIndxToShuffleDeck === -1){
+    shufleDeckOfCardsComplet.push(candidateToShuffle);
+  }
+
+}
+
+//--------------------------------- Todos los jugadores ------------------------------------//
+
+let setCardsToPlayer = (deck) => {
+  let deckOfPlayerCards = [];
+  for(let i = 0; i < numPlayers; i++){
+    deckOfPlayerCards.push(deck.shift());
   }
   return deckOfPlayerCards;
 };
 
-//--------------------------------- Todos los jugadores ------------------------------------//
 
-namesPlayers =  window.prompt ( 'Introduce los nombres de los jugadores').split(',');//Funciona pero solo si introducen los nombres separados por coma. :(
-
-console.log(typeof namesPlayers);
+namesPlayers = ['palyer 1', 'palyer 2', 'palyer 3'] ;
 
 class gamePlayer {
   constructor(name,cards){
@@ -74,18 +85,17 @@ class gamePlayer {
     this.cards = cards;
   }
 }
-
+console.log(shufleDeckOfCardsComplet);
 for(let i = 0 ; i < numPlayers ; i++){
-  tarotPlayers.push(new gamePlayer(namesPlayers[i],setCardsToPlayer()));
+  tarotPlayers.push(new gamePlayer(namesPlayers[i],setCardsToPlayer(shufleDeckOfCardsComplet)));
 }
 
-console.log(tarotPlayers);
 
-//document.querySelector('#barajaContainer').innerHTML = `
-//  <div id="cards-container">
-//    <div class="card">
-//
-//    </div>
-//    <p>Coje tu carta</p>
-//  </div>
-//`
+document.querySelector('#barajaContainer').innerHTML = `
+  <div id="cards-container">
+    <div class="card">
+
+    </div>
+    <p>Coje tu carta</p>
+  </div>
+`
