@@ -8,6 +8,13 @@ export class typeTriunfoCard {
         this.triunfoCardIdentificador = identificador;
         this.triunfoCardValor = valor;
     }
+    identificador(){
+        return this.triunfoCardIdentificador;
+    }
+
+    valor(){
+        return this.triunfoCardValor;
+    }
  }
 
 //Palos cards
@@ -20,6 +27,13 @@ export class typePaloCard {
         this.paloCardIdentificador = identificador ;
         this.simboloPaloCard = palo;
         this.paloCardValor = valor;
+    }
+    identificador(){
+        return this.paloCardIdentificador;
+    }
+
+    valor(){
+        return this.paloCardValor;
     }
  }
 

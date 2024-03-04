@@ -85,17 +85,25 @@ class gamePlayer {
     this.cards = cards;
   }
 }
-console.log(shufleDeckOfCardsComplet);
+
 for(let i = 0 ; i < numPlayers ; i++){
   tarotPlayers.push(new gamePlayer(namesPlayers[i],setCardsToPlayer(shufleDeckOfCardsComplet)));
 }
 
+//--------------------------------- DOM ------------------------------------//
 
-document.querySelector('#barajaContainer').innerHTML = `
-  <div id="cards-container">
-    <div class="card">
+const allCardTag = document.querySelectorAll('.cards');
 
-    </div>
-    <p>Coje tu carta</p>
-  </div>
-`
+
+
+for(let i = 0; i < allCardTag.length; i++ ){
+  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].identificador()}`;
+  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].valor()}`;
+} 
+
+console.log(tarotPlayers[0].cards[0]);
+console.log(tarotPlayers[0].cards[0].identificador());
+console.log(tarotPlayers[0].cards[0].valor());
+
+
+
