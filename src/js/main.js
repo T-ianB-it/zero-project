@@ -93,17 +93,34 @@ for(let i = 0 ; i < numPlayers ; i++){
 //--------------------------------- DOM ------------------------------------//
 
 const allCardTag = document.querySelectorAll('.cards');
+const buttonPlay = document.querySelector('#buttonPlay');
+const buttonLoad = document.querySelector('#buttonLoad')
+
+
+//for(let i = 0; i < allCardTag.length; i++ ){
+//  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].identificador()}`;
+//  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].valor()}`;
+//} 
+
+
+buttonPlay.addEventListener('click', ()=>{
+  for(let i = 0; i < allCardTag.length; i++ ){
+    allCardTag[i].classList.remove('backCards')
+    allCardTag[i].classList.add('showCards');
+
+  } 
+})
+
+buttonLoad.addEventListener('click', ()=>{
+  for(let i = 0; i < allCardTag.length; i++ ){
+    allCardTag[i].classList.remove('showCards');
+    allCardTag[i].classList.remove('backCards')
+  } 
+})
 
 
 
-for(let i = 0; i < allCardTag.length; i++ ){
-  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].identificador()}`;
-  allCardTag[i].appendChild(document.createElement('i')).innerHTML=`${tarotPlayers[i].cards[i].valor()}`;
-} 
 
-console.log(tarotPlayers[0].cards[0]);
-console.log(tarotPlayers[0].cards[0].identificador());
-console.log(tarotPlayers[0].cards[0].valor());
 
 
 

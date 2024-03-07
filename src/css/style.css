@@ -2,6 +2,7 @@
 *{
     box-sizing: border-box;
     min-width: 0;
+    margin: 0;
 }
 
 body{
@@ -17,14 +18,14 @@ p{
 }
 /*Reset*/
 
-@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
+/*CUERPO JUEGO*/
 
 #gamePlayContainer{
     min-width: 400px;
-    /*width: 100%;*/
     height: auto;
     padding: 16px;
+
     background-color: lightblue;
 }
 
@@ -34,9 +35,7 @@ p{
     height: 19rem;
 
     margin: 16px auto;
-
     padding: 5px;
-    /*background-color: lightcoral;*/
 
     display: flex;
     justify-content: space-evenly;
@@ -46,50 +45,77 @@ p{
     width: 13em;
     border-radius: 4%;
 
-    /*0background-color: lemonchiffon;*/
     background-image: url(../assets/images/anverso-tarot-card-f.webp);
     background-size: contain;
     background-position: center;
     position: relative;
-    /*Play*/
-    animation:  0.5s ease-in-out normal forwards;
-    /*Reload (No puedo tener dos animaciones declaradas)*/
-    /*animation:  0.5s ease-in reverse forwards;*/
 }
 
-
-.cards i{
-   position: absolute;
-   left: 10%;
+.showCards{
+    animation: rotatePlayCard 0.5s ease-in-out normal forwards;
 }
 
+.backCards{
+    animation: reloadCards 0.5 ease-in-out normal forwards ;
+}
 
-.playerName{
+.cardsContainer > p{
     text-align: center;
     writing-mode: sideways-lr;
     letter-spacing: 0.3em;
-    /*background-color: blue;*/
-
+     
     font-size: 2.4rem;
-    font-weight: normal;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Madimi One", Impact;
 }
 
+#player0::after{
+    /*content: 'WINER!';*/
+    display: block;
+    color: lightslategray;
+}
 
+/*BOTONES JUEGO*/
+
+#buttonsGame{
+    margin: 0;
+    /*background-color: plum;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+button{    
+    width: 5em;
+    height: 5em;
+
+    border: none;
+    outline: solid 2px silver;
+    border-radius: 50%;
+    background: linear-gradient(145deg, hsl(12, 76%, 49%), hsl(12, 77%, 39%));
+    box-shadow: 16px 16px 25px #95bac6,
+    -16px -16px 25px #c5f6ff;
+
+    color: #DEFFD4;
+    font-family: "Micro 5", Impact;
+    font-size: 2rem;
+    
+
+}   
+button:active{
+    transform: scale(0.9) ;
+}
 
 @keyframes rotatePlayCard {
     to{
         transform: rotateY(180deg);
-
+        
         background-image: none;
         background-color: linen;
-
     }
 }
 
 @keyframes reloadCards {
     to{
-        transform: rotate(-180);
+        transform: rotateY(180deg);
 
         background-image: initial;
     }
