@@ -113,8 +113,7 @@ buttonPlay.addEventListener('click', ()=>{
 
 buttonLoad.addEventListener('click', ()=>{
   for(let i = 0; i < allCardTag.length; i++ ){
-    allCardTag[i].classList.remove('showCards');
-    allCardTag[i].classList.remove('backCards')
+    allCardTag[i].classList.replace('showCards','backCards')
   } 
 })
 

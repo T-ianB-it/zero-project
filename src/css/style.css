@@ -6,7 +6,7 @@
 }
 
 body{
-    min-height: 100dvh;
+    min-width: 72rem;
 }
 
 h1,h2,h3,h4,h5{
@@ -21,28 +21,48 @@ p{
 
 /*CUERPO JUEGO*/
 
+main{
+    height: 100vh;
+ 
+    /*background-color: red;*/
+    background-color: lightblue;
+ 
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+    grid-template-rows: min-content auto;
+}
+
+#title{
+    font-family: "Micro 5";
+    text-align: right;
+    font-size: 2rem;
+
+    padding-right: 3em;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
 #gamePlayContainer{
     min-width: 400px;
-    height: auto;
+    /*height: auto;*/
     padding: 16px;
-
-    background-color: lightblue;
 }
 
 .cardsContainer{
     max-width: 70rem;
-    min-width: 43.1rem;
-    height: 19rem;
-
+    min-width: 45.4rem;
+    /*height: 19rem;*/
     margin: 16px auto;
     padding: 5px;
+
+    /*background-color: lightcoral;*/
 
     display: flex;
     justify-content: space-evenly;
 }
 
 .cards{
-    width: 13em;
+    width: 11em;
     border-radius: 4%;
 
     background-image: url(../assets/images/anverso-tarot-card-f.webp);
@@ -56,7 +76,7 @@ p{
 }
 
 .backCards{
-    animation: reloadCards 0.5 ease-in-out normal forwards ;
+    animation: reloadCards 0.5s ease-in-out normal forwards ;
 }
 
 .cardsContainer > p{
@@ -76,30 +96,31 @@ p{
 
 /*BOTONES JUEGO*/
 
-#buttonsGame{
-    margin: 0;
+.buttonsGame{
+    padding: 0 2em 0;
     /*background-color: plum;*/
+    
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    padding-bottom: 80px;
 }
 
 button{    
-    width: 5em;
-    height: 5em;
+    width: 4em;
+    height: 4em;
 
     border: none;
     outline: solid 2px silver;
     border-radius: 50%;
     background: linear-gradient(145deg, hsl(12, 76%, 49%), hsl(12, 77%, 39%));
-    box-shadow: 16px 16px 25px #95bac6,
-    -16px -16px 25px #c5f6ff;
+    box-shadow: 16px 16px 20px #95bac6,
+    -16px -16px 20px #c5f6ff;
 
     color: #DEFFD4;
     font-family: "Micro 5", Impact;
     font-size: 2rem;
-    
-
 }   
+
 button:active{
     transform: scale(0.9) ;
 }
@@ -114,10 +135,12 @@ button:active{
 }
 
 @keyframes reloadCards {
+    from{
+        background-image: none;
+        background-color: linen;
+    }
     to{
-        transform: rotateY(180deg);
-
-        background-image: initial;
+        transform: rotateY(-180deg);
     }
 }
 

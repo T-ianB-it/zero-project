@@ -4,48 +4,50 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/src/assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Micro+5&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Micro+5&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Easy Tarot</title>
   </head>
   
-  
   <body>
-    <article id="gamePlayContainer">
-
-      <div class="cardsContainer">
-        <p id="player0">PLAYER 1</p>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
-      </div>   
-      
-      <div class="cardsContainer">
-        <p id="player1">PLAYER 2</p>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
-      </div>    
-      <div class="cardsContainer">
-        <p id="player3">PLAYER 3</p>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
-        <div class="cards"> </div>
+    <main>
+      <div id="title">
+        <h2>EASY TAROT GAME</h2>
       </div>
-      
-      <section id="buttonsGame">
+      <article class="buttonsGame">
         <div id="buttonLoad">
           <button>LOAD</button>
         </div>
+      </article>
+      <article id="gamePlayContainer">
+        <div class="cardsContainer">
+          <p id="player0">PLAYER 1</p>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+        </div>   
+        
+        <div class="cardsContainer">
+          <p id="player1">PLAYER 2</p>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+        </div>    
+        <div class="cardsContainer">
+          <p id="player3">PLAYER 3</p>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+          <div class="cards"> </div>
+        </div>
+      </article>
+      <article class="buttonsGame">
         <div id="buttonPlay">
           <button>PLAY</button>
         </div>
-      </section>
-
-    </article>
-    <div id="test"></div>
+      </article>
+    </main>
     <script type="module" src="src/js/main.js"></script>
     <!--<script type="module" src="src/js/cards.js"></script>-->
   </body>
